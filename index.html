@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HUGSIM: A Real-Time, Photo-Realistic and Closed-Loop Simulator for Autonomous Driving">
+  <meta name="keywords" content="Gaussian urban reconstruction closed-loop simulator">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HUGSIM</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FWSVCGZTG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-1FWSVCGZTG');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/twentytwenty.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./images/xdim_face.png">
+
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/jquery.event.move.js"></script>
+  <script src="./js/jquery.twentytwenty.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/fontawesome.all.min.js"></script>
+
+  <!--MathJax-->
+  <!-- <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            HUGSIM: A Real-Time, Photo-Realistic and Closed-Loop Simulator for Autonomous Driving
+          </h1>
+          <img src="images/hugsim.png" alt="Your Image" style="height: 80px; margin-bottom: 20px; vertical-align: middle;">
+          <!-- <h3 class="title has-text-centered">CVPR 2024</h3> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/hyzhou404" target="_blank" rel="noopener noreferrer">
+                Hongyu Zhou</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">
+                Longzhong Lin</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">
+                Jiabao Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">
+                Yichong Lu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">
+                Dongfeng Bai</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">
+                Bingbing Liu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ywang-zju.github.io/" target="_blank" rel="noopener noreferrer">
+                Yue Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cvlibs.net/" target="_blank" rel="noopener noreferrer">
+                Andreas Geiger</a><sup>3,4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yiyiliao.github.io/" target="_blank" rel="noopener noreferrer">
+                Yiyi Liao</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Zhejiang University,</span>
+            <span class="author-block"><sup>2</sup>Huawei Noah's Ark Lab,</span>
+            <span class="author-block"><sup>3</sup>University of Tübingen,</span>
+            <span class="author-block"><sup>4</sup>Tübingen AI Center</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.12722" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv" style="color: orangered"></i>
+                  </span>
+                  <span>Arxiv</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf" style="color: red"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/hyzhou404/HUGSIM" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section pt-0">
+
+  <!-- Paper video. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Video</h2>
+      <div class="publication-video">
+        <iframe width="1600" height="900" src="https://www.youtube.com/embed/C1qoZYyftz0" title="HUGSIM Teaser Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="item item-steve">
+          <video poster="" id="steve" controls playsinline width="100%">
+            <source src="./videos/teaser.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+    </div>
+  </section> -->
+  <!--/ Paper video. -->
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Overview</h2>
+        <!-- <img id="teaser" width="100%" src="./images/teaser.png" alt="Teaser image demonstrating HUGSIM."/> -->
+        <img id="teaser" width="100%" src="https://1drv.ms/i/c/85b4113a299736f9/IQT3o1uq0rVJQZJSiwXVTAKlAY_QV507wgDH2NK5p7_ou0U?width=2604&height=794" alt="Teaser image demonstrating HUGSIM."/>
+        <div class="content has-text-justified">
+          <p>
+            We present <span class="methodname"><b>HUGSIM</b></span>, a real-time, photo-realistic and closed-loop simulator for autonomous driving.
+            <!-- HUGSIM is an extention of <a href="https://xdimlab.github.io/hugs_website/">HUGS</a>.  -->
+            <!-- We improve the quality of novel view synthesis, particularly when using noisy 2D semantic labels and noisy 3D bounding boxes, 
+            as well as in extrapolated views, ensuring robust performance in dynamic urban scenes. 
+            Beyond novel view synthesis,  -->
+            HUGSIM enables the full closed simulation loop, dynamically updating the ego and actor positions and observations based on control commands.
+            It incorporates 360-degree high-fidelity actor insertion and efficiently generates both normal and aggressive actor behaviors.
+            Moreover, HUGSIM offers a comprehensive benchmark across more than 70 sequences from KITTI-360, Waymo Open Dataset, Nuscenes, and Pandaset, along with over 400 varying scenarios, 
+            providing a fair and realistic evaluation platform for existing autonomous driving algorithms.
+          </p>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">HUGSIM Architecture</h2>
+        <!-- <img id="method" width="100%" src="./images/method.png" alt="HUGSIM Architecture"/> -->
+        <img id="method" width="100%" src="https://1drv.ms/i/c/85b4113a299736f9/IQROi1MOgoKyT7SY1uEoQTL9AQNwXHibI-PQWuYS-XufGNM?width=2000&height=748" alt="HUGSIM Architecture"/>
+        <div class="content has-text-justified">
+          <p>
+            Our algorithm takes as input posed images of a dynamic urban scene. We decompose the scene into static and dynamic 3D Gaussians,
+            with the motion of dynamic vehicles being modeled via a unicycle model. The 3D Gaussians represent not only appearance but 
+            also semantic and flow information, allowing for rendering the RGB images, semantic labels, as well as optical flow through volume rendering.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Method. -->
+
+    <!-- Benchmark -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Benchmark Evaluation</h2>
+        <!-- <img id="method" width="100%" src="./images/benchmark.png" alt="HUGSIM Architecture"/> -->
+        <img id="benchmark" width="100%" src="https://1drv.ms/i/c/85b4113a299736f9/IQS_JeWs2a5TTrMmGqGfDlk0ASMZCNdIykCa9g4dntFEIvc?width=10782&height=2381" alt="HUGSIM Benchmark"/>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate <a href="https://github.com/OpenDriveLab/UniAD">UniAD</a>, <a href="https://github.com/hustvl/VAD">VAD</a> 
+            and <a href="https://github.com/autonomousvision/navsim/blob/4a5584606a1f75e6e48984cabfde5cddd5685a3c/navsim/agents/transfuser/transfuser_agent.py">Latent-Transfuser</a> on our HUGSIM benchmark.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Benchmark -->
+
+  </div>
+</section>
+
+
+<h3 class="title has-text-centered">
+  Extrapolated Views Comparison
+</h3>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel-extrap" class="carousel results-carousel">
+
+        <div class="threeitem">
+          <div class="twentytwenty-container twentytwenty-container-top11">
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQS7Edi7wViYR5eguGG4CucfAVk07hq5ypb8YAOMwvm8M2M?width=960&height=640">
+            </div>
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQRPd-0wcBE4Q5IsUZZbbQ_yAX722lW8vQBObgGNVBaEPRo?width=960&height=640">
+            </div>
+          </div>
+          <div class="twentytwenty-container twentytwenty-container-top21">
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQSDajyVOy1-RYtXKatVv-6jAeXrtdBHo0PBQ00wQBBbIrE?width=960&height=640">
+            </div>
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQTY3lS1rWb8T7I6MTmBr43iAU38DI4-RPH7TIzQPLisUPk?width=960&height=640">
+            </div>
+          </div>
+          <div class="twentytwenty-container twentytwenty-container-top31">
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQTSX515gOlbSJf2Y7JNh64xAcSchwuxbArAyjVbvGpQ6S4?width=799&height=450">
+            </div>
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQTr0Fy3okbORocMF1niwBlQAcZe1pfMA4bVJ1_TRXjwBuA?width=800&height=450">
+            </div>
+          </div>
+          <!-- <div class="twentytwenty-container twentytwenty-container-top41">
+            <div class="cmpcontent">
+              <img src="./images/baseline/vkitti06/ours.png">
+            </div>
+            <div class="cmpcontent">
+              <img src="./images/baseline/vkitti06/nsg.png">
+            </div>
+          </div> -->
+        </div>
+        <div class="threeitem">
+          <div class="twentytwenty-container twentytwenty-container-top12">
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQQIl5ZCCp19Q4zTiXrVyD3XAdBGUnJ4I85xL1UaZ_bufGA?width=960&height=640">
+            </div>
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQRPd-0wcBE4Q5IsUZZbbQ_yAX722lW8vQBObgGNVBaEPRo?width=960&height=640">
+            </div>
+          </div>
+          <div class="twentytwenty-container twentytwenty-container-top22">
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQTQ-rSKJcnaT6ZmRabzd9xxARK7D9nHJyxOy3qv2wR5dUE?width=960&height=640">
+            </div>
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQTY3lS1rWb8T7I6MTmBr43iAU38DI4-RPH7TIzQPLisUPk?width=960&height=640">
+            </div>
+          </div>
+          <div class="twentytwenty-container twentytwenty-container-top32">
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQQ8DRkl5z4MSa7jZqAgpQnrAcqrHXxoEQNP2oaqlsGfWeY?width=799&height=450">
+            </div>
+            <div class="cmpcontent">
+              <img src="https://1drv.ms/i/c/85b4113a299736f9/IQRr599uwsafRopqHB5F8qlYAZ7kyfQ7lZGcf3kIAxPQAHU?width=800&height=450">
+            </div>
+          </div>
+          <!-- <div class="twentytwenty-container twentytwenty-container-top42">
+            <div class="cmpcontent">
+              <img src="./images/baseline/vkitti06/ours.png">
+            </div>
+            <div class="cmpcontent">
+              <img src="./images/baseline/vkitti06/mars.png">
+            </div>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(window).on('load', function() {
+    bulmaCarousel.attach('#results-carousel-horizontal', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      autoplay: true,
+    });
+
+    bulmaCarousel.attach('#results-carousel-extrap', {
+      slidesToScroll: 2,
+      slidesToShow: 2,
+      // loop: true,
+      // autoplay: true,
+    });
+
+    bulmaCarousel.attach('#results-carousel-benchmark', {
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      // loop: true,
+      autoplay: true,
+    });
+
+    $(".twentytwenty-container-top11").twentytwenty({
+      before_label: 'StreetGS',
+      after_label: 'Ours',
+      default_offset_pct: 0.5,
+    });
+    $(".twentytwenty-container-top21").twentytwenty({
+      before_label: 'StreetGS',
+      after_label: 'Ours',
+      default_offset_pct: 0.5,
+    });
+    $(".twentytwenty-container-top12").twentytwenty({
+      before_label: 'NeuRAD',
+      after_label: 'Ours',
+      default_offset_pct: 0.5,
+    });
+    $(".twentytwenty-container-top22").twentytwenty({
+      before_label: 'NeuRAD',
+      after_label: 'Ours',
+      default_offset_pct: 0.5,
+    });
+    $(".twentytwenty-container-top31").twentytwenty({
+      before_label: 'NeuRAD',
+      after_label: 'Ours',
+      default_offset_pct: 0.5,
+    });
+    $(".twentytwenty-container-top32").twentytwenty({
+      before_label: 'NeuRAD',
+      after_label: 'Ours',
+      default_offset_pct: 0.5,
+    });
+  });
+</script>
+
+<br>
+<h3 class="title has-text-centered">
+  Benchmark Gallery
+</h3>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+
+    <div class="title-row">
+      <div class="column-title">Original Scenarios</div>
+      <div class="column-title">Edited Scenarios</div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/nusc_s1_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/nusc_s1_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/nusc_s2_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/nusc_s2_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/kitti360_s1_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/kitti360_s1_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/kitti360_s2_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/kitti360_s2_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/waymo_s1_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/waymo_s1_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/waymo_s2_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" playsinline autoPlay muted controls>
+          <source src="videos/gallery/waymo_s2_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" loop playsinline autoPlay muted controls>
+          <source src="videos/gallery/pandaset_s1_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" loop playsinline autoPlay muted controls>
+          <source src="videos/gallery/pandaset_s1_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="video-row">
+      <div class="video-item">
+        <video class="galleryvideo" loop playsinline autoPlay muted controls>
+          <source src="videos/gallery/pandaset_s2_0.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item">
+        <video class="galleryvideo" loop playsinline autoPlay muted controls>
+          <source src="videos/gallery/pandaset_s2_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  var videos = document.querySelectorAll('.galleryvideo');
+
+  videos.forEach(function(video) {
+    // For example, log each video element to the console
+    console.log(video);
+  });
+  
+  // Set how many seconds to wait before looping again
+  var pauseDuration = 2; // 2 seconds
+
+  videos.forEach(function(video) {
+    // When the video ends, pause for a few seconds and then restart
+    video.addEventListener('ended', function() {
+      // Hide the controls when the video ends
+      video.removeAttribute('controls');
+      // Pause for the specified duration, then restart the video and show controls
+      setTimeout(function() {
+        video.play(); // Restart the video after the pause
+        video.setAttribute('controls', '');
+      }, pauseDuration * 1000); // Pause duration in milliseconds
+    });
+  })
+</script>
+
+<section class="hero">
+  <div class="hero-body">
+    <h2>This paper is an extension of <a href="https://xdimlab.github.io/hugs_website/">HUGS: Holistic Urban 3D Scene Understanding via Gaussian Splatting</a></h2>
+  </div>
+</section>
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{Zhou_2024_CVPR,
+      author    = {Zhou, Hongyu and Shao, Jiahao and Xu, Lu and Bai, Dongfeng and Qiu, Weichao and Liu, Bingbing and Wang, Yue and Geiger, Andreas and Liao, Yiyi},
+      title     = {HUGS: Holistic Urban 3D Scene Understanding via Gaussian Splatting},
+      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      month     = {June},
+      year      = {2024},
+      pages     = {21336-21345}
+  }</code></pre>
+  </div>
+</section> -->
+
+<footer class="footer pt-4 pb-0">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+            <p>
+            Website template based on
+            <a href="https://github.com/nerfies/nerfies.github.io">
+              Nerfies
+            </a>
+            and licensed under
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+              CC-BY-SA-4.0
+            </a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html> 
